@@ -6,22 +6,9 @@ const App = () => {
 
   const token = "088fa680c48939a9e264662348b76f6e";
 
-  // const main = async () => {
-  //   if (code === null || code === "") {
-  //       alert("카카오에서 코드를 받는데 실패했습니다");
-  //       return;
-  //   } else {
-  //     await new Promise<accessTokenKakao>((resolve) => {
-  //       getKakaoTokenHandler(resolve, code.toString())
-  //     });
-  //     // await loadUserInfo(accessToken)
-  //   }
-  // }
-
   const onSuccess = (res) => {
-
-    axios.post('http://localhost:8081/login',{
-      id : res.profile.id
+  axios.post('http://localhost:8081/login',{
+    id : res.profile.id
   })
   .then(res => {
       console.log(res.data);
