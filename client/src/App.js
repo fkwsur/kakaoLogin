@@ -7,20 +7,21 @@ const App = () => {
   const token = "088fa680c48939a9e264662348b76f6e";
 
   const onSuccess = (res) => {
-  axios.post('http://localhost:8081/login',{
-    id : res.profile.id
-  })
-  .then(res => {
-      console.log(res.data);
-      if(res.data){
+    console.log(res);
+    axios.post('http://localhost:8081/login', {
+      id: res.profile.id
+    })
+      .then(res => {
+        console.log(res.data);
+        if (res.data) {
           console.log('대성공');
-      } else{
+        } else {
           alert('error');
           return false;
-      }
-  }).catch(err => {
-      console.log(err);
-  });
+        }
+      }).catch(err => {
+        console.log(err);
+      });
   }
 
   return (
@@ -32,7 +33,7 @@ const App = () => {
         onLogout={console.info}
         className="KakaoLogin"
         getProfile={true}
-        >
+      >
       </KakaoLogin>
     </>
   );
